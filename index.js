@@ -61,6 +61,32 @@ $(document).ready(function() {
         //alert("Could not load Google Map script: " + jqxhr);
     });
 
+
+    $("#distribution").change(function(){
+       $(this).find("option:selected").each(function(){
+           if($(this).attr("id")=="poissonSelect"){
+               $(".DistInput").not(".poissonSelect").hide();
+               $(".poissonSelect").show();
+           }
+           else if($(this).attr("id")=="uniformSelect"){
+               $(".DistInput").not(".uniformSelect").hide();
+               $(".uniformSelect").show();
+           }
+           else if($(this).attr("id")=="binomialSelect"){
+               $(".DistInput").not(".binomialSelect").hide();
+               $(".binomialSelect").show();
+           }
+           else if($(this).attr("id")=="normalSelect"){
+               $(".DistInput").not(".normalSelect").hide();
+               $(".normalSelect").show();
+           }
+
+           else{
+               $(".DistInput").hide();
+           }
+       });
+   }).change();
+
 });
 
 function initMap(params) {
