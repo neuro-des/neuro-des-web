@@ -1,0 +1,35 @@
+:root {
+
+    --primarycolor: #1A2A61;
+    --secondarycolor: #5B77AA;
+    --tertiarycolor: #707086;
+    --quartiarycolor: #86ACBA;
+    --quintiarycolor: #F1EFF2;
+    --inputcolor: #e8effc;
+
+}
+
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--quintiarycolor);
+}
+
+
+.jumbotron {
+
+    background-color: var(--primarycolor);
+    color: white;
+
+
+}
+
+.btn-circle {
+    width: 50px;
+    height: 50px;
+    padding: 6px 0px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 1.42857;
+}

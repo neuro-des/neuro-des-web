@@ -13,7 +13,13 @@
         <!-- CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" href="index.css">
+
+        <link rel="stylesheet" href="global/theme.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
     </head>
+
     <body>
         <div class="container">
             <div class="jumbotron">
@@ -25,51 +31,48 @@
                 <header class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="mainTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="hospital-tab" data-toggle="tab" href="#hospital" role="tab">Hospitals</a>
+                            <a class="nav-link active" id="CSC-tab" data-toggle="tab" href="#CSC" role="tab">CSCs</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" id="patient-tab" data-toggle="tab" href="#patient" role="tab">Patients</a>
+                            <a class="nav-link" id="PSC-tab" data-toggle="tab" href="#PSC" role="tab">PSCs</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="rural-tab" data-toggle="tab" href="#rural" role="tab">Rural</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" id="patient-tab" data-toggle="tab" href="#rural" role="tab">Demographic</a>
+                        </li>
+
                         <li class="nav-item ml-auto text-success">
                             <a class="nav-link text-success" id="simulation-tab" data-toggle="tab" href="#simulation" role="tab" href="#">Simulation</a>
                         </li>
                     </ul>
                 </header>
+
+
                 <section class="card-body tab-content" id="mainTabContent">
-                    <div class="tab-pane fade show active container" id="hospital" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane fade show active container" id="CSC" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             <div class="col">
+                                <h3>Central Stroke Centres</h3>
                                 <div class="card m-2" >
                                     <div class="card-header">
-                                        Add a Hospital
+                                        Statistical Data
                                     </div>
                                     <form class="container p-2">
                                         <div class="form-group row">
                                             <label for="staticEmail" class="col-sm-2 col-form-label">1.</label>
                                             <div class="col-sm-10">
-                                                <button class="btn btn-primary">Add Hospital</button>
+                                                <label> Average patient length of stay in days</label>
+                                                <input type="number" class="form-control" id="inputCSCLOS" placeholder="e.g. 10" min="0">
                                             </div>
                                         </div>
 
                                         <div class="form-group row">
                                             <label for="staticEmail" class="col-sm-2 col-form-label">2.</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputPassword" placeholder="Search Hospital Name...">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">3.</label>
-                                            <p class="col-sm-10">
-                                                <em>Define Catchment Area:</em> <br />
-                                                Clicking on the map defines the vertices of a polygon.
-                                                Create a closed polygon that represents the hospitals catchment area. <br />
-                                                (Note: No edges can cross over)
-                                            </p>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">4.</label>
                                             <div class="col-sm-10">
                                                 <button class="btn btn-light">Cancel</button>
                                                 <button class="btn btn-success">Complete</button>
@@ -93,7 +96,50 @@
                                             asdfasdf
                                         </div>
                                     </div>
+                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#addCSCHospital">Add Hospital <i class="fas fa-plus"></i> </button>
+
                                 </div>
+
+                                    <div id="addCSCHospital" class="collapse">
+
+
+                                        <div class="card m-2" >
+                                            <div class="card-header">
+                                                Add a Hospital
+                                            </div>
+                                            <form class="container p-2">
+                                                <div class="form-group row">
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label">1.</label>
+                                                    <div class="col-sm-10">
+                                                        <input type="text" class="form-control" id="inputPassword" placeholder="Search Hospital Name...">
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label">3.</label>
+                                                    <p class="col-sm-10">
+                                                        <em>Define Catchment Area:</em> <br />
+                                                        Clicking on the map defines the vertices of a polygon.
+                                                        Create a closed polygon that represents the hospitals catchment area. <br />
+                                                        (Note: No edges can cross over)
+                                                    </p>
+                                                </div>
+
+                                                <div class="form-group row">
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label">4.</label>
+                                                    <div class="col-sm-10">
+                                                        <button class="btn btn-light">Cancel</button>
+                                                        <button class="btn btn-success">Complete</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+
+                                    </div>
+
+
+
+
                             </div>
                             <div class="col">
                                 <div id="js-map-canvas" class="card map-canvas m-2">
@@ -102,10 +148,39 @@
                             </div>
                         </div>
 
+                    </div>
+                    <div class="tab-pane fade" id="PSC" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row">
+                            <div class="col">
+                                    <div class="card m-2" >
+                                        <div class="card-header">
+                                            Define population
+                                        </div>
+                                        <form class="container p-2">
+                                            <div class="form-group row">
+                                                <label for="staticEmail" class="col-sm-2 col-form-label">1. Population</label>
+                                                <div class="col-sm-10">
+                                                    <input type="number" class="form-control" id="inputPopulation" placeholder="e.g. 6359000">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="staticEmail" class="col-sm-2 col-form-label">5.</label>
+                                                <div class="col-sm-10">
+                                                    <button class="btn btn-light">Cancel</button>
+                                                    <button class="btn btn-success">Complete</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                </div>
+
+                            </div>
+
+                        </div>
+
 
 
                     </div>
-                    <div class="tab-pane fade" id="patient" role="tabpanel" aria-labelledby="profile-tab">B</div>
                     <div class="tab-pane fade" id="simulation" role="tabpanel" aria-labelledby="contact-tab">C</div>
                 </section>
             </main>
