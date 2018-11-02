@@ -24,7 +24,7 @@
         <div class="container">
             <div class="jumbotron">
                 <h1 class="display-4">Neuro-DES</h1>
-                <p class="lead">A city-wide simulation of Stroke management</p>
+                <p class="lead">A multi-hospital simulation of Stroke management</p>
             </div>
 
             <main class="card">
@@ -84,43 +84,18 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">3. Distribution</label>
+                                            <label for="staticEmail" class="col-sm-2 col-form-label">3. Rate</label>
                                             <div class="col-sm-10">
-                                                <select class="form-control" id="distribution">
-                                                    <option id="poissonSelect"> Poisson </label>
-                                                    <option id="uniformSelect"> Uniform </label>
-                                                    <option id="binomialSelect"> Binomial </label>
-                                                    <option id="normalSelect"> Normal </label>
-                                                </select>
-                                                <div class="poissonSelect DistInput"><br/>
-
-                                                    <label> Stroke rate: </label>
-
-
-                                                    <input type="number" min="0" placeholder="e.g. 4"> <br/>
-                                                    <small>please give in the number of strokes per hour </small>
-
-
-                                                </div>
-                                                <div class="uniformSelect DistInput"> Uniform input
-
-
-                                                </div>
-                                                <div class="binomialSelect DistInput"> Binomial input
-
-
-                                                </div>
-                                                <div class="normalSelect DistInput"> Normal input
-
-
-                                                </div>
+                                                <input type="text" class="form-control" id="inputRate" min="0" placeholder="e.g. 7">
+                                                <small> Please enter the number of strokes to occur per hour </small>
                                             </div>
+
                                         </div>
 
 
 
                                         <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">3.</label>
+                                            <label for="staticEmail" class="col-sm-2 col-form-label">4. Catchment</label>
                                             <p class="col-sm-10">
                                                 <strong>Define Catchment Area:</strong> <br/>
                                                 Clicking on the map defines the vertices of a polygon.
@@ -152,22 +127,58 @@
 <!-- CSC -->
                     <div class="tab-pane fade" id="CSC" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col">
-                                <h3>Central Stroke Centres</h3>
 
-                                <div class="card m-2">
-                                    <div class="card-header">
-                                        Hospital List
-                                    </div>
-                                    <div class="container">
-                                        <div class="hospital">
-                                            <h4> Hospital A </h4>
-                                            <p> Location and Statistical information regarding capacity etc </p>
+
+                                <div class="col-sm-6">
+                                    <h3>Central Stroke Centres</h3>
+                                    <div class="card m-2">
+                                        <div class="card-header">
+                                            Hospital List
                                         </div>
-                                    </div>
-                                    <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#addCSCHospital">Add Hospital <i class="fas fa-plus"></i> </button>
+                                        <div style="padding-left: 15px; padding-right:15px; padding-top:10px;"  >
 
+                                            <button type="button" class="btn btn-info w-100" data-toggle="collapse" data-target="#addCSCHospital">Add Hospital <i class="fas fa-plus"></i> </button>
+
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="hospital">
+                                                <div class="btn-group float-right" role="group">
+                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                                <h4> Hospital A </h4>
+                                                <p> Location and Statistical information regarding capacity etc </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="hospital">
+                                                <div class="btn-group float-right" role="group">
+                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                                <h4> Hospital B </h4>
+                                                <p> Location and Statistical information regarding capacity etc </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="container">
+                                            <div class="hospital">
+                                                <div class="btn-group float-right" role="group">
+                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                </div>
+                                                <h4> Hospital C</h4>
+                                                <p> Location and Statistical information regarding capacity etc </p>
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
                                 </div>
+                                <div class="col-sm-6">
 
                                     <div id="addCSCHospital" class="collapse">
 
@@ -187,7 +198,7 @@
 
 
                                                 <div class="form-group row">
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"> 4. </label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label"> 2. </label>
                                                     <p class="col-sm-10">
                                                         <strong>Define Capacity </strong> <br/>
                                                         <em>please enter the average number of acute stroke patients the hospital system can handle
@@ -206,7 +217,7 @@
                                                 </div>
 
                                                 <div class="form-group row">
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label">5.</label>
+                                                    <label for="staticEmail" class="col-sm-2 col-form-label">3.</label>
                                                     <div class="col-sm-10">
                                                         <button class="btn btn-light">Cancel</button>
                                                         <button class="btn btn-success">Complete</button>
@@ -219,6 +230,7 @@
 
 
                                     <div id="addCSCHospital" class="collapse">
+                                </div>
 
 
 
@@ -229,32 +241,18 @@
                         </div>
 
                     </div>
-                </div>
+
+
 
 <!-- PSC -->
                     <div class="tab-pane fade" id="PSC" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
                             <div class="col">
+                                    <h3> Peripheral Stroke Centres </h3>
                                     <div class="card m-2" >
                                         <div class="card-header">
-                                            Define population
+                                            Placeholder for PSC
                                         </div>
-                                        <form class="container p-2">
-                                            <div class="form-group row">
-                                                <label for="staticEmail" class="col-sm-2 col-form-label">1. Population</label>
-                                                <div class="col-sm-10">
-                                                    <input type="number" class="form-control" id="inputPopulation" placeholder="e.g. 6359000">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group row">
-                                                <label for="staticEmail" class="col-sm-2 col-form-label">5.</label>
-                                                <div class="col-sm-10">
-                                                    <button class="btn btn-light">Cancel</button>
-                                                    <button class="btn btn-success">Complete</button>
-                                                </div>
-                                            </div>
-                                        </form>
                                     </div>
 
                             </div>
@@ -270,24 +268,9 @@
                                 <h3>Rural Hospitals</h3>
                                     <div class="card m-2" >
                                         <div class="card-header">
-                                            Define population
+                                            Placeholder for Rural
                                         </div>
-                                        <form class="container p-2">
-                                            <div class="form-group row">
-                                                <label for="staticEmail" class="col-sm-2 col-form-label">1. Population</label>
-                                                <div class="col-sm-10">
-                                                    <input type="number" class="form-control" id="inputPopulation" placeholder="e.g. 6359000">
-                                                </div>
-                                            </div>
 
-                                            <div class="form-group row">
-                                                <label for="staticEmail" class="col-sm-2 col-form-label">5.</label>
-                                                <div class="col-sm-10">
-                                                    <button class="btn btn-light">Cancel</button>
-                                                    <button class="btn btn-success">Complete</button>
-                                                </div>
-                                            </div>
-                                        </form>
                                 </div>
 
                             </div>
