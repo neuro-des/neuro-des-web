@@ -175,6 +175,106 @@
                     <div class="tab-pane fade" id="hospitals" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             <div class="col">
+                                <div class="card m-2 w-100" >
+                                    <div class="card-header text-center">
+                                        <strong>Hospital List</strong>
+                                    </div>
+                                    <div class="container p-3 bg-light">
+                                        <div class="btn-group w-100" role="group">
+                                            <button type="button" class="btn btn-info w-100">Add New Hospital <i class="fas fa-plus"></i></button>
+                                        </div>
+                                        <div class="item">
+                                            <div class="btn-group float-right" role="group">
+                                                <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                            <h5>Hospital A</h5>
+                                            <p><strong>Population:</strong> 500<br />
+                                            <strong>Stroke Rate:</strong> 1 / 1000mins</p>
+                                        </div>
+                                        <div class="item">
+                                            <div class="btn-group float-right" role="group">
+                                                <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                            <h5>Hospital B</h5>
+                                            <p><strong>Population:</strong> 500<br />
+                                            <strong>Stroke Rate:</strong> 1 / 1000mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-2" >
+                                    <div class="card-header">
+                                        Add a Hospital
+                                    </div>
+                                    <form class="container p-2">
+                                        <ol class="list-group list-group-flush">
+                                            <li class="list-group-item">
+                                                <h6>Hospital Location</h6>
+                                                <input type="text" class="form-control" id="inputNewCSCHospitalName" placeholder="Search Hospital Name...">
+                                            </li>
+                                            <li class="list-group-item">
+                                                <h6>Hospital Type</h6>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                                    <label class="form-check-label" for="exampleRadios1">
+                                                        Central Stroke Center
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                                                    <label class="form-check-label" for="exampleRadios2">
+                                                        Peripheral Stroke Center
+                                                    </label>
+                                                </div>
+                                                <div class="form-check disabled">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                                                    <label class="form-check-label" for="exampleRadios3">
+                                                        Rural Hospital
+                                                    </label>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="inputTPopulation">Average Capacity</label>
+                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 2">
+                                                        <small class="form-text text-muted">Average number of acute patients able to be accepted at any given time</small>
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="inputTPopulation">Variance</label>
+                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 1">
+                                                        <small class="form-text text-muted"> If the amount that the average number able to be accepted varies by +/- 2, input 2 here. If the service is
+                                                            only able to ever take the average number of patients, please put in 0 </small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="inputTPopulation">Median Admission Time</label>
+                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 2">
+                                                        <small class="form-text text-muted">Average number of acute patients able to be accepted at any given time</small>
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="inputTPopulation">Variance</label>
+                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 1">
+                                                        <small class="form-text text-muted"> If the amount that the average number able to be accepted varies by +/- 2, input 2 here. If the service is
+                                                            only able to ever take the average number of patients, please put in 0 </small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item">
+                                                <div class="btn-group">
+                                                    <button class="btn btn-light">Cancel</button>
+                                                    <button class="btn btn-success">Complete</button>
+                                                </div>
+                                            </li>
+                                        </ol>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -370,48 +470,7 @@
                                     <div id="addCSCHospital" class="collapse">
 
 
-                                        <div class="card m-2" >
-                                            <div class="card-header">
-                                                Add a Hospital
-                                            </div>
-                                            <form class="container p-2">
-                                                <div class="form-group row">
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label">1.</label>
-                                                    <div class="col-sm-10">
-                                                        <input type="text" class="form-control" id="inputNewCSCHospitalName" placeholder="Search Hospital Name...">
-                                                    </div>
-                                                </div>
 
-
-
-                                                <div class="form-group row">
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label"> 2. </label>
-                                                    <p class="col-sm-10">
-                                                        <strong>Define Capacity </strong> <br/>
-                                                        <em>please enter the average number of acute stroke patients the hospital system can handle
-                                                            with its available resources, and usual +/- variance </em> <br/> <br/>
-
-                                                        Average Capacity
-                                                        <input type="number" min="0" class="form-control" id="inputNewCSCHospitalCapacityAvg" placeholder="e.g. 2">
-                                                        <small> average number of acute patients able to be accepted at any given time </small><br/>
-                                                        Variance
-                                                        <input type="number" min="0" class="form-control" id="inputNewCSCHospitalCapacityVariance" placeholder="e.g. 1">
-                                                        <small> if the amount that the average number able to be accepted varies by +/- 2, input 2 here. If the service is
-                                                            only able to ever take the average number of patients, please put in 0 </small>
-                                                    </p>
-
-
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="staticEmail" class="col-sm-2 col-form-label">3.</label>
-                                                    <div class="col-sm-10">
-                                                        <button class="btn btn-light">Cancel</button>
-                                                        <button class="btn btn-success">Complete</button>
-                                                    </div>
-                                                </div>
-                                            </form>
-                                        </div>
 
                                     </div>
 
