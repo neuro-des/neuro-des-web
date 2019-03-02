@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     })
     .fail(function (jqxhr, settings, ex) {
-        //alert("Could not load Google Map script: " + jqxhr);
+        $.getScript(`http://maps.google.com/maps/api/js?callback=initMap`);
     });
 
 

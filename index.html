@@ -15,8 +15,8 @@
         <link rel="stylesheet" href="index.css">
 
         <link rel="stylesheet" href="global/theme.css">
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
-        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/solid.js" integrity="sha384-6FXzJ8R8IC4v/SKPI8oOcRrUkJU8uvFK6YJ4eDY11bJQz4lRw5/wGthflEOX8hjL" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/fontawesome.js" integrity="sha384-xl26xwG2NVtJDw2/96Lmg09++ZjrXPc89j0j7JHjLOdSwHDHPHiucUjfllW0Ywrq" crossorigin="anonymous"></script>
 
     </head>
 
@@ -31,22 +31,15 @@
                 <header class="card-header">
                     <ul class="nav nav-tabs card-header-tabs" id="mainTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="catchment-tab" data-toggle="tab" href="#catchment" role ="tab">Catchment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="demographics-tab" data-toggle="tab" href="#demographics" role="tab">Demographic</a>
+                            <a class="nav-link active" id="catchment-tab" data-toggle="tab" href="#regions" role ="tab">Regions</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="CSC-tab" data-toggle="tab" href="#CSC" role="tab">CSCs</a>
+                            <a class="nav-link" id="CSC-tab" data-toggle="tab" href="#hospitals" role="tab">Hospitals</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" id="PSC-tab" data-toggle="tab" href="#PSC" role="tab">PSCs</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" id="rural-tab" data-toggle="tab" href="#rural" role="tab">Rural</a>
+                            <a class="nav-link" id="rural-tab" data-toggle="tab" href="#parameters" role="tab">Parameters</a>
                         </li>
 
 
@@ -58,11 +51,137 @@
                 </header>
 
 
-
-<!-- Demographics -->
                 <section class="card-body tab-content" id="mainTabContent">
+<!-- Regions -->
+                    <div class="tab-pane fade show active container" id="regions" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col-9">
+                                <div class="card m-2 w-100" >
+                                    <div class="card-header text-center ">
+                                        Map
+                                    </div>
+                                    <div class="container p-0">
+                                        <div id="js-map-canvas" class="w-100">
 
-                    <div class="tab-pane fade show active container" id="catchment" role="tabpanel" aria-labelledby="home-tab">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-2 w-100" >
+                                    <div class="card-header text-center">
+                                        Search
+                                    </div>
+                                    <div class="container p-2">
+                                        <div class="form-group mb-0">
+                                            <input type="text" class="form-control" id="inputTPopulation" placeholder="e.g. Melbourne">
+                                            <small class="form-text text-muted">
+                                                Type in a location and click on it to center the map
+                                            </small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="card m-2 w-100 mb-4" >
+                                    <div class="card-header text-center">
+                                        <strong>Overall Catchment Area</strong>
+                                    </div>
+                                    <div class="container p-3 bg-light">
+                                        <div class="btn-group w-100" role="group">
+                                            <button type="button" class="btn btn-info w-100">Define Overall Catchment Area <i class="fas fa-plus"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="card m-2 w-100" >
+                                    <div class="card-header text-center">
+                                        <strong>Region List</strong>
+                                    </div>
+                                    <div class="container p-3 bg-light">
+                                        <div class="btn-group w-100" role="group">
+                                            <button type="button" class="btn btn-info w-100">Add New Region <i class="fas fa-plus"></i></button>
+                                        </div>
+                                        <div class="item">
+                                            <div class="btn-group float-right" role="group">
+                                                <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                            <h5>Region A</h5>
+                                            <p><strong>Population:</strong> 500<br />
+                                            <strong>Stroke Rate:</strong> 1 / 1000mins</p>
+                                        </div>
+                                        <div class="item">
+                                            <div class="btn-group float-right" role="group">
+                                                <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
+                                                <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            </div>
+                                            <h5>Region B</h5>
+                                            <p><strong>Population:</strong> 500<br />
+                                            <strong>Stroke Rate:</strong> 1 / 1000mins</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="card m-2 w-100" >
+                                    <div class="card-header text-center">
+                                        Define Overall Catchment Area
+                                    </div>
+                                    <div class="container p-3">
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="inputTPopulation"><strong>Total Population</strong></label>
+                                                <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 645000000">
+                                            </div>
+
+                                        </div>
+                                        <div class="row mt-1">
+                                            <div class="col">
+                                                <h6><strong>Define Region</strong></h6>
+                                                Instructions
+                                                <ol>
+                                                    <li>
+                                                        Begin by clicking the create button
+                                                    </li>
+                                                    <li>
+                                                        Clicking on the map will define the points of a Polygon
+                                                    </li>
+                                                    <li>
+                                                        Create a closed Polygon around the region you are trying to define. (Note: No edges can cross over)
+                                                    </li>
+                                                    <li>
+                                                        Click the confirm button
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col text-center">
+                                                <div class="btn-group" role="group">
+                                                    <button type="button" class="btn btn-success">Create <i class="fas fa-draw-polygon"></i></button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- HOSPITALS -->
+                    <div class="tab-pane fade" id="hospitals" role="tabpanel" aria-labelledby="home-tab">
+                        <div class="row">
+                            <div class="col">
+                            </div>
+                        </div>
+                    </div>
+
+
+<!-- OLD: Catchments -->
+                    <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
                             <div class="col">
                                 <h3>Catchment Area</h3>
@@ -192,8 +311,8 @@
 
                     </div>
 
-<!-- CSC -->
-                    <div class="tab-pane fade" id="CSC" role="tabpanel" aria-labelledby="profile-tab">
+<!-- Hospitals -->
+                    <div class="tab-pane fade" id="hospitals" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
 
 
