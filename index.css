@@ -1,3 +1,13 @@
+[data-toggle="collapse"] {
+    color: var(--primarycolor);
+    cursor: pointer;
+}
+
+[data-toggle="collapse"]:hover {
+    text-decoration: underline;
+    color: var(--secondarycolor) !important;
+}
+
 .item {
     padding: 0.5rem;
     padding-left: 1rem;

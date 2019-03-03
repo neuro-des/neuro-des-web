@@ -17,11 +17,8 @@ body {
 
 
 .jumbotron {
-
     background-color: var(--primarycolor);
     color: white;
-
-
 }
 
 .btn-circle {

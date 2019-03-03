@@ -209,7 +209,7 @@
                                     <div class="card-header">
                                         Add a Hospital
                                     </div>
-                                    <form class="container p-2">
+                                    <form class="container p-0">
                                         <ol class="list-group list-group-flush">
                                             <li class="list-group-item">
                                                 <h6>Hospital Location</h6>
@@ -229,8 +229,8 @@
                                                         Peripheral Stroke Center
                                                     </label>
                                                 </div>
-                                                <div class="form-check disabled">
-                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
                                                     <label class="form-check-label" for="exampleRadios3">
                                                         Rural Hospital
                                                     </label>
@@ -239,28 +239,34 @@
                                             <li class="list-group-item">
                                                 <div class="form-row">
                                                     <div class="form-group col">
-                                                        <label for="inputTPopulation">Average Capacity</label>
+                                                        <label for="inputTPopulation">Maximum Capacity</label>
                                                         <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 2">
-                                                        <small class="form-text text-muted">Average number of acute patients able to be accepted at any given time</small>
+                                                        <small class="form-text text-muted">Maximum number of acute patients able to be accepted at any given time</small>
                                                     </div>
                                                     <div class="form-group col">
-                                                        <label for="inputTPopulation">Variance</label>
-                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 1">
-                                                        <small class="form-text text-muted"> If the amount that the average number able to be accepted varies by +/- 2, input 2 here. If the service is
-                                                            only able to ever take the average number of patients, please put in 0 </small>
-                                                    </div>
+
                                                 </div>
                                             </li>
                                             <li class="list-group-item">
                                                 <div class="form-row">
                                                     <div class="form-group col">
-                                                        <label for="inputTPopulation">Median Admission Time</label>
-                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 2">
+                                                        <label for="inputTPopulation">Mean Admission Time</label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 2">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
                                                         <small class="form-text text-muted">Average number of acute patients able to be accepted at any given time</small>
                                                     </div>
                                                     <div class="form-group col">
-                                                        <label for="inputTPopulation">Variance</label>
-                                                        <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 1">
+                                                        <label for="inputTPopulation">Standard Deviation</label>
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 1">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
                                                         <small class="form-text text-muted"> If the amount that the average number able to be accepted varies by +/- 2, input 2 here. If the service is
                                                             only able to ever take the average number of patients, please put in 0 </small>
                                                     </div>
@@ -279,251 +285,208 @@
                         </div>
                     </div>
 
-
-<!-- OLD: Catchments -->
-                    <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="home-tab">
+<!-- PARAMETERS -->
+                    <div class="tab-pane fade" id="parameters" role="tabpanel" aria-labelledby="home-tab">
                         <div class="row">
-                            <div class="col">
-                                <h3>Catchment Area</h3>
-                                <div class="card m-2 border-primary" >
-                                    <div class="card-header">
-                                        Define Total Catchment Area
+                            <div id="parameters-accordion" class="col accordion">
+                                <div class="card" >
+                                    <div class="card-header text-primary " data-toggle="collapse" data-target="#parameters-rate">
+                                        Stroke Rate
                                     </div>
-                                    <div class="container p-2">
-                                        <div class="form-group-row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label"><strong>Total Population</strong></label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 645000000">
+                                    <div id="parameters-rate" class="container p-3 collapse show" data-parent="#parameters-accordion">
+                                        <div class="form-row">
+                                            <div class="form-group col">
+                                                <label for="strokeyear">Strokes Per Year</label>
+                                                <input type="text" class="form-control" id="strokeyear" placeholder="e.g. 1000">
+                                                <small class="form-text text-muted">Number of strokes per year, used to estimate the number of strokes that will occur in the user defined period</small>
                                             </div>
-                                        </div>
-                                        <div class="form-group-row">
-                                            <label for="staticEmail" class="col-sm-10 col-form-label"><strong> Define Catchment Area</strong> </label>
-                                            <p class="col-sm-12"> Clicking on the map defines the vertices of a polygon. Create a closed polygon that
-                                                represents the hospital's catchment area <br/>
-                                                (note: no edges can cross over) </p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="card m-2" >
-                                    <div class="card-header">
-                                        Define Metropolitan Catchment Area
+
+                                <div class="card" >
+                                    <div class="card-header text-primary " data-toggle="collapse" data-target="#parameters-transfer">
+                                        Transfer
                                     </div>
-                                    <div class="container p-2">
-                                        <p class="col-sm-10">
-                                            <strong>Define Catchment Area:</strong> <br/>
-                                            Clicking on the map defines the vertices of a polygon.
-                                            Create a closed polygon that represents the hospitals catchment area. <br />
-                                            (Note: No edges can cross over)
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="demographics" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-                            <div class="col">
-                                <h3>Demographic Info</h3>
-                                <div class="card m-2 border-primary" >
-                                    <div class="card-header">
-                                        Define Total Catchment Area
-                                    </div>
-                                    <div class="container p-2">
-                                        <p class="col-sm-10">
-                                            <strong>Define Catchment Area:</strong> <br/>
-                                            Clicking on the map defines the vertices of a polygon.
-                                            Create a closed polygon that represents the hospitals catchment area. <br />
-                                            (Note: No edges can cross over)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="card m-2" >
-                                    <div class="card-header">
-                                        Define Metropolitan Catchment Area
-                                    </div>
-                                    <div class="container p-2">
-                                        <p class="col-sm-10">
-                                            <strong>Define Catchment Area:</strong> <br/>
-                                            Clicking on the map defines the vertices of a polygon.
-                                            Create a closed polygon that represents the hospitals catchment area. <br />
-                                            (Note: No edges can cross over)
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="card m-2" >
-                                    <div class="card-header">
-                                        Define Metropolitan Population
-                                    </div>
-                                    <form class="container p-2">
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">1. Population</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="inputPopulation" placeholder="e.g. 6359000">
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">2. Stroke Incidence</label>
-                                            <div class="col-sm-10">
-                                                <input type="number" class="form-control" id="inputPopulation" placeholder="e.g. 0.02">
-                                                <small>Please input as a decimal - e.g. stroke incidence of 2% would be 0.02 </small>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">3. Rate</label>
-                                            <div class="col-sm-10">
-                                                <input type="text" class="form-control" id="inputRate" min="0" placeholder="e.g. 7">
-                                                <small> Please enter the number of strokes to occur per hour </small>
-                                            </div>
-
-                                        </div>
-
-
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">4. Catchment</label>
-                                            <p class="col-sm-10">
-                                                <strong>Define Catchment Area:</strong> <br/>
-                                                Clicking on the map defines the vertices of a polygon.
-                                                Create a closed polygon that represents the hospitals catchment area. <br />
-                                                (Note: No edges can cross over)
-                                            </p>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="staticEmail" class="col-sm-2 col-form-label">5.</label>
-                                            <div class="col-sm-10">
-                                                <button class="btn btn-light">Cancel</button>
-                                                <button class="btn btn-success">Complete</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-
-
-
-
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-<!-- Hospitals -->
-                    <div class="tab-pane fade" id="hospitals" role="tabpanel" aria-labelledby="profile-tab">
-                        <div class="row">
-
-
-                                <div class="col-sm-6">
-                                    <h3>Central Stroke Centres</h3>
-                                    <div class="card m-2">
-                                        <div class="card-header">
-                                            Hospital List
-                                        </div>
-                                        <div style="padding-left: 15px; padding-right:15px; padding-top:10px;"  >
-
-                                            <button type="button" class="btn btn-info w-100" data-toggle="collapse" data-target="#addCSCHospital">Add Hospital <i class="fas fa-plus"></i> </button>
-
-                                        </div>
-
-                                        <div class="container">
-                                            <div class="hospital">
-                                                <div class="btn-group float-right" role="group">
-                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                    <div id="parameters-transfer" class="container p-0 collapse" data-parent="#parameters-accordion">
+                                        <ol class="list-group list-group-flush">
+                                            <li class="list-group-item container">
+                                                <div class="form-row mb-3">
+                                                    <div class="col">
+                                                        <h5>Probability of going to nearest hospital</h5>
+                                                        <small class="form-text text-muted">The application calculates the two closest hospitals to the patient. To simulate the potential for the closest hospital to be unable to accept a stroke patient, users can specify a probability for a patient to go to the closest or second closest hospital</small>
+                                                    </div>
                                                 </div>
-                                                <h4> Hospital A </h4>
-                                                <p> Location and Statistical information regarding capacity etc </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="container">
-                                            <div class="hospital">
-                                                <div class="btn-group float-right" role="group">
-                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Rural</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Peripheral</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Central</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
                                                 </div>
-                                                <h4> Hospital B </h4>
-                                                <p> Location and Statistical information regarding capacity etc </p>
-                                            </div>
-                                        </div>
-
-                                        <div class="container">
-                                            <div class="hospital">
-                                                <div class="btn-group float-right" role="group">
-                                                    <button type="button" class="btn btn-primary"><i class="fas fa-edit"></i></button>
-                                                    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                                            </li>
+                                            <li class="list-group-item container">
+                                                <div class="form-row mb-3">
+                                                    <div class="col">
+                                                        <h5>Proportion requiring transfer</h5>
+                                                        <small class="form-text text-muted">What proportion of patients at a rural and psc hospital will require transfer to a csc</small>
+                                                    </div>
                                                 </div>
-                                                <h4> Hospital C</h4>
-                                                <p> Location and Statistical information regarding capacity etc </p>
-                                            </div>
-                                        </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Rural</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Peripheral</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
+                                                    <div class="form-group col">
 
-
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item container">
+                                                <div class="form-row mb-3">
+                                                    <div class="col">
+                                                        <h5>Ambulance</h5>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Ambulance Call Time</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="strokeyear" placeholder="e.g. 1000">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
+                                                        <small class="form-text text-muted">How long it takes for an ambulance to be dispatched, specified as a geometric distribution</small>
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Ambulance Arrival Time</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="strokeyear" placeholder="e.g. 1000">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
+                                                        <small class="form-text text-muted">How long it takes for an ambulance to reach a patient, specified as a geometric distribution</small>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
 
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
 
-                                    <div id="addCSCHospital" class="collapse">
+                                <div class="card" >
+                                    <div class="card-header text-primary " data-toggle="collapse" data-target="#parameters-hospital">
+                                        In Hospital
+                                    </div>
+                                    <div id="parameters-hospital" class="container p-0 collapse" data-parent="#parameters-accordion">
+                                        <ol class="list-group list-group-flush">
+                                            <li class="list-group-item container">
+                                                <div class="form-row mb-3">
+                                                    <div class="col">
+                                                        <h5>Probability of patient requiring angiography</h5>
+                                                        <small class="form-text text-muted">Probability that a patient received in a Central Stroke Centre will require angiography</small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
 
+                                                    </div>
+                                                    <div class="form-group col">
 
-
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Central</label>
+                                                        <input type="range" class="custom-range" id="strokeyear" placeholder="e.g. 1000">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li class="list-group-item container">
+                                                <div class="form-row mb-3">
+                                                    <div class="col">
+                                                        <h5>CT Scan Time</h5>
+                                                        <small class="form-text text-muted">Specify a normal distribution for the time it takes for a CT scan to be performed for a stroke patientc</small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Mean CT Scan Time</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="strokeyear" placeholder="e.g. 40">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
+                                                        <small class="form-text text-muted"></small>
+                                                    </div>
+                                                    <div class="form-group col">
+                                                        <label for="strokeyear">Standard Deviation</label>
+                                                        <div class="input-group">
+                                                            <input type="text" class="form-control" id="strokeyear" placeholder="e.g. 5">
+                                                            <div class="input-group-append">
+                                                                <span class="input-group-text">mins</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </ol>
 
                                     </div>
-
-
-                                    <div id="addCSCHospital" class="collapse">
                                 </div>
-
-
-
-
-
                             </div>
-
                         </div>
-
                     </div>
 
-
-
-<!-- PSC -->
-                    <div class="tab-pane fade" id="PSC" role="tabpanel" aria-labelledby="profile-tab">
+<!-- SIMULATION -->
+                    <div class="tab-pane fade" id="simulation" role="tabpanel" aria-labelledby="contact-tab">
                         <div class="row">
-                            <div class="col">
-                                    <h3> Peripheral Stroke Centres </h3>
-                                    <div class="card m-2" >
-                                        <div class="card-header">
-                                            Placeholder for PSC
+                            <div class="col-8">
+                                <div class="card w-100" >
+                                    <div class="card-header text-center ">
+                                        Simulation Time
+                                    </div>
+                                    <div class="container p-3">
+                                        <div class="form-row">
+                                            <div class="form-group col">
+                                                <label for="inputTPopulation">Simulation Time</label>
+                                                <div class="input-group">
+                                                    <input type="number" class="form-control" id="inputTPopulation" placeholder="e.g. 7">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text">months</span>
+                                                    </div>
+                                                </div>
+                                                <small class="form-text text-muted"></small>
+                                            </div>
+                                            <div class="form-group col">
+                                                <label for="inputTPopulation">Start Date</label>
+                                                <input type="datetime-local" class="form-control" id="inputTPopulation" placeholder="e.g. 7">
+                                                <small class="form-text text-muted"></small>
+                                            </div>
                                         </div>
                                     </div>
-
+                                </div>
                             </div>
-
+                            <div class="col align-self-center">
+                                <button class="btn btn-success w-100">Start Simulation <i class="fas fa-play"></i></button>
+                            </div>
                         </div>
-                    </div>
-
-
-<!-- Rural -->
-                    <div class="tab-pane fade" id="rural" role="tabpanel" aria-labelledby="profile-tab">
                         <div class="row">
-                            <div class="col">
-                                <h3>Rural Hospitals</h3>
-                                    <div class="card m-2" >
-                                        <div class="card-header">
-                                            Placeholder for Rural
-                                        </div>
-                                    </div>
-                            </div>
+
                         </div>
                     </div>
-
-
-<!-- Simulation -->
-                    <div class="tab-pane fade" id="simulation" role="tabpanel" aria-labelledby="contact-tab">C</div>
                 </section>
             </main>
 
